@@ -3,9 +3,10 @@ import classes from "./App.css";
 // import Cigars from "../components/Cigars/Cigar/Cigar";
 import Cigars from "../components/Cigars/Cigars";
 import Cockpit from "../components/Cockpit/Cockpit";
-import Auth from "../components/Cigars/Cigar/Auth";
+import Main from "../components/Cigars/Cigar/Main";
 import Secret from "../components/Cigars/Cigar/Secret";
 import NotFound from "../components/Cigars/Cigar/NotFound";
+import Callback from "../components/Cigars/Cigar/Callback";
 
 //you could do lots of things here to makes things easier
 
@@ -127,7 +128,10 @@ class App extends PureComponent {
     let mainComponent = "";
     switch(this.props.location) {
       case "": 
-        mainComponent = <Auth />;
+        mainComponent = <Main />;
+        break;
+      case "callback":
+        mainComponent = <Callback />;
         break;
       case "secret":
         mainComponent = <Secret />;
@@ -149,8 +153,8 @@ class App extends PureComponent {
     return (
 
       <div className={classes.App}>
-        {mainComponent}
-        <button
+          {mainComponent} 
+          <button
           onClick={() => {
             this.setState({ showCigars: true });
           }}
